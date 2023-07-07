@@ -116,6 +116,28 @@ nav > ul > li {
     text-decoration: none;
 }
 
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    left: 0;
+    background-color: var(--branco);
+
+    transition: .5s ease-in-out;
+    /* transform: scaleX(0); */
+}
+
+nav ul li a:hover::after {
+    /* transform: scaleX(1); */
+    width: 100%;
+}
+
 .header__logo {
     font-weight: 400;
     font-size: 1.125rem;
@@ -257,7 +279,7 @@ nav > ul > li {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin-top: 64px;
+    padding-top: 72px;
     justify-content: center;
     align-items: center;
 }
@@ -315,6 +337,10 @@ nav > ul > li {
 //...cccccc...llll.iiii..eeeeee...nnnn..nnnn.tttttt.eeeeee....ssssss....
 //...................................................................... */
 
+.clientes__limatador {
+    padding-top: 72px;
+}
+
 .clientes__limatador > h2 {
     color: #0E1C24;
     font-size: 2rem;
@@ -323,8 +349,6 @@ nav > ul > li {
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
-
-    margin-top: 64px;
 }
 
 .clientes__limatador > div {
@@ -413,33 +437,46 @@ footer {
         text-align: center;
         gap: 32px;
     }
-}
 
-@media only screen and (max-width: 790px) {
     .header__logo > p {
         display: none;
     }
 }
 
-@media only screen and (max-width: 620px) {
-    .header > ul > li {
-        font-size: 1rem;
+@media only screen and (max-width: 928px) {
+    .quemsomos__imagem__resp {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+
+    .servicos__card {
+        width: 45%;
+        max-width: none;
     }
 
+    .header > ul > li {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
     .header > ul > button {
-        padding: 8px;
+        padding: 8px 16px;
     }
 
     .header > ul > button > img {
-        width: 1rem;
+        /* width: 1rem; */
     }
 
     .header__logo > img {
-        width: 32px;
+        width: 50px;
     }
 
-    .texto__botao__header__ativo {
-        display: none;
+    .texto__botao__header {
+        font-size: 1rem;
     }
 
     nav > ul {
@@ -447,18 +484,22 @@ footer {
     }
 
     .hero {
-        padding: 70px 16px 40px 16px;
+        padding: 80px 16px 40px 16px;
     }
 
     .hero__textos > h1 {
         font-size: 2rem;
     }
 
-    .servicos__card {
+    /* .servicos__card {
         max-width: 156px;
-    }
+    } */
 
     .clientes__limatador > div > img {
         max-width: 156px;
     }
+
+    .clientes__limatador, .quemsomos__limitador {
+        padding-top: 56px;
+    }    
 }

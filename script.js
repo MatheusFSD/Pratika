@@ -2,55 +2,18 @@
 
 //Animação de ancoragem
 
-var $doc = $('html, body');
-$('#link__formulario' || '#link__beneficios' || '#link__funcionamento').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -64
-    }, 500);
-    return false;
+
+$("nav li a").click(function (event) {
+    event.preventDefault();
+    var dest = 0;
+    if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+        dest = $(document).height() - $(window).height();
+    } else {
+        dest = $(this.hash).offset().top;
+    }
+    $('html,body').animate({ scrollTop: dest }, 1000, 'swing');
 });
 
-var $doc = $('html, body');
-$('#link__beneficios').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -72
-    }, 500);
-    return false;
-});
-
-var $doc = $('html, body');
-$('#link__funcionamento').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -72
-    }, 500);
-    return false;
-});
-
-var $doc = $('html, body');
-$('#link__formulario__hero').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -64
-    }, 500);
-    return false;
-});
-
-var $doc = $('html, body');
-$('#link__hero').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -64
-    }, 500);
-    return false;
-});
-
-
-
-//Loading formulário
-
-var formulario = $(".formulário__container-campos")
-
-formulario.submit(function(event){
-    $('body').toggleClass('loading');
-});
 
 //Mudar cor do header
 
